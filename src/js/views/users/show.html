@@ -1,10 +1,10 @@
 <div class="container">
   <h2>{{ usersShow.user.username }}'s profile</h2>
-  <p class="caps">You have uploaded <strong>{{ filtered.length }}</strong> prints</p>
+  <p class="caps">You have uploaded <strong>{{ filtered.length }}</strong> posts</p>
 </div>
 <h2></h2>
-  <div class="container" id="user_prints">
-    <div ng-repeat="print in usersShow.user.prints | filter:query as filtered" class="print">
+  <div class="container" id="user_posts">
+    <div ng-repeat="post in usersShow.user.posts | filter:query as filtered" class="post">
       <div class="overlay">
         <h3>{{ post.title }}</h3>
       </div>
