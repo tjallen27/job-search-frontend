@@ -4,7 +4,7 @@ angular
 
 // Main controller checks if user is logged in and is current user
 MainCtrl.$inject = ['$rootScope', '$state', '$auth'];
-funtion MainCtrl($rootScope, $state, $auth){
+function MainCtrl($rootScope, $state, $auth){
   const vm = this;
 
  // $rootScope is a parent object of all $scope Angular objects created in a web page
@@ -12,7 +12,7 @@ funtion MainCtrl($rootScope, $state, $auth){
     if(vm.stateHasChanged) vm.message = null;
     if (!vm.stateHasChanged) vm.stateHasChanged = true;
     vm.isNavCollapsed = true;
-  });;
+  });
 
   vm.isAuthenticated = $auth.isAuthenticated;
 
@@ -34,7 +34,7 @@ funtion MainCtrl($rootScope, $state, $auth){
 
   const protectedStates = ['postsNew', 'postsEdit'];
 
-  $rootScope.$on('$stateChangeStart', (e, start) => {
+  $rootScope.$on('$stateChangeStart', (e, toState) => {
     if(($auth.isAuthenticated() && protectedStates.includes(toState.name))) {
       e.preventDefault();
       $state.go('login');

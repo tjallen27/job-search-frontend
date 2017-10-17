@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="posts_container">
+    <h2>{{ postsShow.post.title }}</h2>
+    <img ng-src="{{ postsShow.post.image_src }}">
+    <p>Created by:
+      <strong>
+        <a ui-sref="usersShow({ id: postsShow.post.user.id})">{{ postsShow.post.user.username }}</a>
+      </strong></p>
+    <p>{{ postsShow.post.body }}</p>
+  </div>
+</div>
