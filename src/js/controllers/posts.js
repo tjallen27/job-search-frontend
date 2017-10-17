@@ -1,5 +1,5 @@
 angular
-  .module('App',[])
+  .module('App', [])
   .controller('PostsIndexCtrl', PostsIndexCtrl)
   .controller('PostsNewCtrl', PostsNewCtrl)
   .controller('PostsShowCtrl', PostsShowCtrl)
@@ -12,18 +12,23 @@ function PostsIndexCtrl(Post, filterFilter, $scope){
   vm.all = Post.query();
 }
 
+
 PostsNewCtrl.$inject = ['Post', 'User', '$state'];
 function PostsNewCtrl(Post, User, $state){
   const vm = this;
   vm.post = {};
+  // set user var as revelant User
   vm.user = User.query();
 
   function postsCreate(){
     Post
+      // for this post, save it as a new post
       .save({post: vm.post})
       .$promise
+      // then go to the post index page
       .then(()=> $state.go('postsIndex'));
   }
+  // store this function as a create
   vm.create = postsCreate;
 }
 

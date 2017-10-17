@@ -1,5 +1,5 @@
 angular
-  .module('App',[])
+  .module('App', [])
   .config(Router);
 
 Router.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
