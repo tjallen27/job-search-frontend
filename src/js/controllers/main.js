@@ -1,5 +1,5 @@
 angular
-  .module('app')
+  .module('App', [])
   .controller('MainCtrl', MainCtrl);
 
 // Main controller checks if user is logged in and is current user

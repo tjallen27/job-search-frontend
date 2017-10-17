@@ -1,5 +1,5 @@
 angular
-  .module('app')
+  .module('App',[])
   .controller('PostsIndexCtrl', PostsIndexCtrl)
   .controller('PostsNewCtrl', PostsNewCtrl)
   .controller('PostsShowCtrl', PostsShowCtrl)

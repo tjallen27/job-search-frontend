@@ -4,8 +4,8 @@
   "description": "A example stack with gulp and angular",
   "main": "index.js",
   "engines": {
-  "node": "7.4.0"
-},
+    "node": "7.4.0"
+  },
   "scripts": {
     "postinstall": "bower install && gulp deploy",
     "start": "node index"
@@ -54,6 +54,7 @@
     }
   },
   "dependencies": {
+    "angular-google-maps": "^2.4.1",
     "express": "^4.14.0"
   },
   "devDependencies": {
@@ -79,6 +80,7 @@
     "gulp-order": "^1.1.1",
     "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.5.4",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^2.2.0",
     "gulp-strip-css-comments": "^1.2.0",
@@ -87,7 +89,6 @@
     "jshint": "^2.9.4",
     "jshint-stylish": "^2.2.1",
     "main-bower-files": "^2.13.1",
-    "require-dir": "^0.3.1",
-    "gulp-replace": "^0.5.4"
+    "require-dir": "^0.3.1"
   }
 }

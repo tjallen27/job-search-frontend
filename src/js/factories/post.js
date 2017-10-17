@@ -1,5 +1,5 @@
 angular
-  .module('app')
+  .module('App',[])
   .factory('Post', Post);
 
 Post.$inject = ['$resource', 'API_URL'];

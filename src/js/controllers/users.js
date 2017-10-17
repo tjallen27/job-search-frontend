@@ -1,5 +1,5 @@
 angular
-  .module('app')
+  .module('App',[])
   .controller('UsersIndexCtrl', UsersIndexCtrl)
   .controller('UsersShowCtrl', UsersShowCtrl);
 

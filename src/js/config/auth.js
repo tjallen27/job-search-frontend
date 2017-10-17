@@ -1,5 +1,5 @@
 angular
-  .module('app')
+  .module('App',[])
   .config(Auth);
 
 Auth.$inject = ['$authProvider', 'API_URL'];
