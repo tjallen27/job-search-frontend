@@ -26,4 +26,26 @@ funtion MainCtrl($rootScope, $state, $auth){
     $state.go('login');
   });
 
+  $rootScope.$on('$stateChangeSuccess', () => {
+    if(vm.stateHasChanged) vm.message = null;
+    if(!vm.stateHasChanged) vm.stateHasChanged = true;
+    if($auth.getPayload()) vm.currentUser = $auth.getPayload();
+  });
+
+  const protectedStates = ['postsNew', 'postsEdit'];
+
+  $rootScope.$on('$stateChangeStart', (e, start) => {
+    if(($auth.isAuthenticated() && protectedStates.includes(toState.name))) {
+      e.preventDefault();
+      $state.go('login');
+      vm.message = 'You must be logged in to see this page!';
+    }
+    vm.pageName = toState.name;
+  });
+
+  function logout(){
+    $auth.logout();
+    $state.go('home');
+  }
+  vm.logout = logout;
 }
