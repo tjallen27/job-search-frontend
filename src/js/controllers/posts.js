@@ -26,3 +26,39 @@ function PostsNewCtrl(Post, User, $state){
   }
   vm.create = postsCreate;
 }
+
+PostsShowCtrl.$inject = ['Post', 'User', '$stateParams', '$state', '$auth'];
+function PostsShowCtrl(Post, User, $stateParams, $state, $auth){
+  const vm = this;
+
+  if($auth.getPayload())
+    vm.currentUser = User.get({ id: $auth.getPayload().id });
+
+  vm.post = Post.get($stateParams);
+
+  function postsDelete(){
+    vm.post
+      .remove()
+      .then(() => $state.go('postsIndex'));
+  }
+  vm.delete = postsDelete;
+}
+
+PostsEditCtrl.$inject = ['Post', 'User', '$stateParams', '$state'];
+function PostsEditCtrl(Post, User, $stateParams, $state){
+  const vm = this;
+
+  Post.get($stateParams).$promise.then((post)=>{
+    vm.post = post;
+  });
+
+  vm.users = User.query();
+
+  function postsUpdate(){
+    Post
+      .update({id: vm.post.id, post: vm.post})
+      .$promise
+      .$then(() => $state.go('postsShow', { id: vm.post.id }));
+  }
+  vm.update = postsUpdate;
+}
